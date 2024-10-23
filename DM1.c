@@ -19,6 +19,15 @@ int mod_exp(int a, int b ,int n){
 bool fermat_witness(int n,int a){
     return mod_exp(a,(n-1),n)==1;
 }
+bool fermat_primality_test(int n,int k){
+    int i=0;
+    while(i<k){
+        int a=(rand()%(n-2))+2;
+        if(!fermat_witness(n,a)) return false;
+        i++;
+    }
+    return true;
+}
 
 int main(){
     return 0;
